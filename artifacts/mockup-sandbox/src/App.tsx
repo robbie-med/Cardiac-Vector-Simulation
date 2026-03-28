@@ -93,7 +93,7 @@ function getBasePath(): string {
 
 function getPreviewExamplePath(): string {
   const basePath = getBasePath();
-  return `${basePath}/preview/ComponentName`;
+  return `${basePath}/#/preview/ComponentName`;
 }
 
 function Gallery() {
@@ -119,7 +119,14 @@ function Gallery() {
 
 function getPreviewPath(): string | null {
   const basePath = getBasePath();
-  const { pathname } = window.location;
+  const { pathname, hash } = window.location;
+
+  // Check Hash first (better for GitHub Pages)
+  if (hash.startsWith("#/preview/")) {
+    return hash.slice("#/preview/".length);
+  }
+
+  // Fallback to Pathname
   const local =
     basePath && pathname.startsWith(basePath)
       ? pathname.slice(basePath.length) || "/"
