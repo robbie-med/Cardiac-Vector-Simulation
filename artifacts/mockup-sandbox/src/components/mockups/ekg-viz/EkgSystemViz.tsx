@@ -679,7 +679,7 @@ export function EkgSystemViz() {
                           }} />
                       </div>
                     </div>
-                    <span style={{ fontSize: 9, color: COLORS.muted, width: 44, textAlign: "right" }}>
+                    <span className="shrink-0 whitespace-nowrap" style={{ fontSize: 9, color: COLORS.muted, width: 60, textAlign: "right" }}>
                       {v.toFixed(3)} mV
                     </span>
                   </div>
