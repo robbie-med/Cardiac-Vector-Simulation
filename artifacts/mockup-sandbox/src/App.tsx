@@ -136,11 +136,25 @@ function getPreviewPath(): string | null {
 }
 
 function App() {
-  const previewPath = getPreviewPath();
+  const [previewPath, setPreviewPath] = useState<string | null>(getPreviewPath());
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setPreviewPath(getPreviewPath());
+    };
+
+    window.addEventListener("hashchange", handleLocationChange);
+    window.addEventListener("popstate", handleLocationChange);
+    return () => {
+      window.removeEventListener("hashchange", handleLocationChange);
+      window.removeEventListener("popstate", handleLocationChange);
+    };
+  }, []);
 
   if (previewPath) {
     return (
       <PreviewRenderer
+        key={previewPath} // Force re-mount when path changes
         componentPath={previewPath}
         modules={discoveredModules}
       />

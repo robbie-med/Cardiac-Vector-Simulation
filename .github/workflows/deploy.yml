@@ -34,8 +34,10 @@ jobs:
           # Set BASE_PATH to the repository name for GitHub Pages
           export BASE_PATH="/${{ github.event.repository.name }}/"
           pnpm run build
+          # Prevent Jekyll from ignoring files
+          touch artifacts/mockup-sandbox/dist/.nojekyll
         env:
-          PORT: 8080 # Dummy port for build process if needed by vite.config.ts
+          PORT: 8080
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
