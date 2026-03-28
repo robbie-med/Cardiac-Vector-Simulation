@@ -1,0 +1,27 @@
+
+> @workspace/api-server@0.0.0 dev /home/user/Projects/cardiacmodel/Cardiac-Vector-Simulation/artifacts/api-server
+> export NODE_ENV=development && pnpm run build && pnpm run start
+
+
+> @workspace/api-server@0.0.0 build /home/user/Projects/cardiacmodel/Cardiac-Vector-Simulation/artifacts/api-server
+> node ./build.mjs
+
+
+  dist/index.mjs                       1.4mb ⚠️
+  dist/pino-worker.mjs               153.5kb
+  dist/pino-file.mjs                 142.1kb
+  dist/pino-pretty.mjs               114.6kb
+  dist/thread-stream-worker.mjs        7.3kb
+  dist/index.mjs.map                   2.1mb
+  dist/pino-worker.mjs.map           256.9kb
+  dist/pino-file.mjs.map             229.1kb
+  dist/pino-pretty.mjs.map           203.9kb
+  dist/thread-stream-worker.mjs.map   12.0kb
+
+⚡ Done in 107ms
+
+> @workspace/api-server@0.0.0 start /home/user/Projects/cardiacmodel/Cardiac-Vector-Simulation/artifacts/api-server
+> node --enable-source-maps ./dist/index.mjs
+
+[12:28:14.347] [32mINFO[39m (506908): [36mServer listening[39m
+    [35mport[39m: 8085
